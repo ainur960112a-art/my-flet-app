@@ -12,12 +12,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build APK with Flet
-        uses: flet-dev/flet-build-action@v1
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          target: apk
-          runner-python-version: "3.12"
-          bundled-python-version: "3.12"
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Flet
+        run: |
+          pip install flet
+          
+      - name: Build APK
+        run: |
+          flet build apk --verbose
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
