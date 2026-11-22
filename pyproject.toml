@@ -1,0 +1,13 @@
+[project]
+name = "my-flet-app"
+version = "1.0.0"
+description = "Simple Flet + Supabase App"
+requires-python = ">=3.11"
+dependencies = [
+    "flet",
+    "supabase",
+]
+
+[tool.flet]
+app.name = "My Flet App"
+app.bundle_id = "com.student.fletapp"
