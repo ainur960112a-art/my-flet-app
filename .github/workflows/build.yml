@@ -12,14 +12,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build APK with Flet
-        uses: flet-dev/flet-build-action@v1
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          target: apk
-          runner-python-version: "3.12"
-          bundled-python-version: "3.12"
-        env:
-          FLET_CLI_NO_RICH_OUTPUT: "1"
+          python-version: '3.12'
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+
+      - name: Install Flet CLI
+        run: pip install flet-cli
+
+      - name: Build APK
+        run: flet build apk --verbose --no-rich-output
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
