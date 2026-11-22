@@ -27,7 +27,7 @@ jobs:
         run: pip install flet-cli
 
       - name: Build APK
-        run: flet build apk --verbose --no-rich-output --yes
+                run: flet build apk --verbose --no-rich-output --yes --module-name src.main
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
