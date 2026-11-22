@@ -1,4 +1,3 @@
-yaml
 name: Build Flet APK
 
 on:
@@ -19,8 +18,7 @@ jobs:
           target: apk
           runner-python-version: "3.12"
           bundled-python-version: "3.12"
-        env:
-          FLET_CLI_LOG_FORMAT: "plain"
+          extra-args: "--no-rich-output"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
