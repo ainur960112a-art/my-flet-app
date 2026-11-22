@@ -18,6 +18,8 @@ jobs:
           target: apk
           runner-python-version: "3.12"
           bundled-python-version: "3.12"
+        env:
+          FLET_CLI_NO_RICH_OUTPUT: "1"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
