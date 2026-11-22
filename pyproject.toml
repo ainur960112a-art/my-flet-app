@@ -11,7 +11,5 @@ dependencies = [
 [tool.flet]
 app.name = "My Flet App"
 app.bundle_id = "com.student.fletapp"
-
-[tool.flet.app]
-path = "src"
-module = "main"
+app.path = "src"
+app.module = "main"
