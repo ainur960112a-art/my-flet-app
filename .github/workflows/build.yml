@@ -23,17 +23,11 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.24.0'
-          channel: 'stable'
-
       - name: Install Flet CLI
         run: pip install flet-cli
 
       - name: Build APK
-        run: flet build apk --verbose --no-rich-output
+        run: flet build apk --verbose --no-rich-output --yes
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
