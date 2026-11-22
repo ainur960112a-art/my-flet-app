@@ -29,16 +29,13 @@ jobs:
           flutter-version: '3.24.0'
           channel: 'stable'
 
-      - name: Install Flet
+      - name: Install Flet CLI
         run: |
-          pip install flet
+          pip install flet-cli
 
       - name: Build APK
         run: |
           flet build apk --verbose
-        env:
-          FLET_CLI_NO_RICH_OUTPUT: "1"
-          PYTHONUTF8: "1"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
