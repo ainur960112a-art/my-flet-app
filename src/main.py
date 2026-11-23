@@ -77,4 +77,5 @@ def main(page: ft.Page):
 
     load_items()
 
-ft.app(target=main)
+ft.run(main)
+
