@@ -2,7 +2,8 @@ import flet as ft
 from supabase import create_client, Client
 
 SUPABASE_URL = "https://lcohplmtpqbtszgwkhdh.supabase.co"
-SUPABASE_KEY = "sb_publishable_fw0BVn8o1G0yeR187f-gCA_1rkUGBC1" 
+SUPABASE_KEY = "sb_publishable_fw0BVn8o1G0yeR187f-gCA_1rkUGBC1"  # Вставьте ваш ключ sb_publishable_...
+
 def main(page: ft.Page):
     page.title = "Список покупок"
     page.theme_mode = ft.ThemeMode.LIGHT
@@ -61,14 +62,15 @@ def main(page: ft.Page):
             page.snack_bar.open = True
             page.update()
 
-        add_button = ft.IconButton(
-        icon=ft.Icons.ADD_CIRCLE,  # <--- Исправлено здесь
+    # Создаем кнопку (теперь с заглавными Icons и Colors)
+    add_button = ft.IconButton(
+        icon=ft.Icons.ADD_CIRCLE,
         icon_size=40,
         icon_color=ft.Colors.GREEN,
         on_click=add_item
-    
     )
 
+    # Собираем интерфейс (add_button теперь точно существует)
     page.add(
         ft.Text("Мой список покупок", size=24, weight=ft.FontWeight.BOLD),
         ft.Row([new_item_input, add_button]),
@@ -78,6 +80,5 @@ def main(page: ft.Page):
 
     load_items()
 
+# Запускаем приложение (правильная команда для Flet 1.0)
 ft.run(main)
-
-
