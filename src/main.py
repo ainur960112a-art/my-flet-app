@@ -61,11 +61,12 @@ def main(page: ft.Page):
             page.snack_bar.open = True
             page.update()
 
-    add_button = ft.IconButton(
-        icon=ft.icons.ADD_CIRCLE,
+        add_button = ft.IconButton(
+        icon=ft.Icons.ADD_CIRCLE,  # <--- Исправлено здесь
         icon_size=40,
-        icon_color=ft.colors.GREEN,
+        icon_color=ft.Colors.GREEN,
         on_click=add_item
+    
     )
 
     page.add(
@@ -78,4 +79,5 @@ def main(page: ft.Page):
     load_items()
 
 ft.run(main)
+
 
